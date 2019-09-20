@@ -1,0 +1,72 @@
+
+a {
+  @include transition(0.2s all ease);
+}
+p {
+  font-family: $font-family-darker;
+  font-size: 20px;
+}
+input,
+button {
+  outline: none;
+}
+.container-2 {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+.col{
+  padding: 0 !important;
+}
+.row {
+  @include clearfix;
+  margin: 0 -1.9%;
+  @include flexbox;
+  @include flex-wrap(wrap);
+  @include bp(tab) {
+    margin: 0 -3%;
+  }
+}
+.logo{
+   margin: 0 100px;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 18px;
+    color: #252525d6;
+}
+.heading-01 {
+  @include fs(48, 26);
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1.5px;
+  color: white;
+  @include bp(tab) {
+    @include fs(40, 26);
+  }
+  @include bp(sp) {
+    @include fs(32, 22);
+  }
+}
+.heading-02 {
+  @include fs(36, 48);
+  font-weight: 700;
+  color: $color-black;
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  @include bp(sp) {
+    @include fs(28, 22);
+  }
+}
+.heading-03 {
+  @include fs(22, 36);
+  font-weight: bold;
+  @include bp(sp) {
+    @include fs(18, 32);
+  }
+}
+
+
+
