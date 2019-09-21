@@ -8,6 +8,7 @@
 				self.setSmoothScroll();
 				self.feature();
 				self.swiperSlide();
+				self.luxyScroll();
 		
 			});
 		},
@@ -67,6 +68,10 @@
 				loop: true,
 			  });
 		},
+
+		luxyScroll: function(){
+			luxy.init();
+		}
 
 	}.init());
 
