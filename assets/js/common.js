@@ -70,7 +70,11 @@
 		},
 
 		luxyScroll: function(){
-			luxy.init();
+			getWidth = $( window ).width();
+			if(getWidth > 1200){
+				luxy.init();
+			}
+		
 		}
 
 	}.init());

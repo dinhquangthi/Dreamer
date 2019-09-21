@@ -6,12 +6,10 @@
     @include bp(pc) {
       @include flexbox();
       @include justify-content(space-around);
-      padding: 30px 0;
       @include align-items(center);
       
     }
     @include bp(tab) {
-      position: fixed;
       top: 0;
       left: 0;
       right: 0;
@@ -61,153 +59,63 @@
         }
       }
     }
-    .navMenu {
-      &_list {
-        &_item {
-          vertical-align: middle;
+    nav{
+      .navMenu {
+        &_list {
+          align-items: center;
           a {
-            text-transform: uppercase;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            font-family: $font-family-barlow;
-            position: relative;
-            color: $color-black;
-            @include bp(pc) {
-              &:after {
-                content: "";
-                position: absolute;
-                -webkit-transition: .3s;
-                transition: .3s;
-                width: 0;
-                left: 50%;
-                bottom: -10px;
-                height: 2px;
-                background-color: $color-black;
-                opacity: 0;
-                -webkit-transition: all .15s;
-                transition: all .15s;
-            
-              }
-              &:hover {
-                &:after {
-                    width: 100%;
-                    left: 0;
-                    opacity: 1;
-                    -webkit-transition: all .3s;
-                    transition: all .3s;
+            padding: 0 !important;
+            margin: 0 20px;
+              text-transform: uppercase;
+              font-size: 13px;
+              font-weight: 600;
+              letter-spacing: 4px;
+              font-family: $font-family-barlow;
+              position: relative;
+              color: $color-black;
+              @include bp(pc) {
+                &:not(:nth-of-type(3)):after {
+                  content: "";
+                  position: absolute;
+                  -webkit-transition: .3s;
+                  transition: .3s;
+                  width: 0;
+                  left: 50%;
+                  bottom: 0px;
+                  height: 2px;
+                  background-color: $color-black;
+                  opacity: 0;
+                  -webkit-transition: all .15s;
+                  transition: all .15s;
+              
+                }
+                &:hover {
+                  &:after {
+                      width: 100%;
+                      left: 0;
+                      opacity: 1;
+                      -webkit-transition: all .3s;
+                      transition: all .3s;
+                  }
+                }
+                &.active:after {
+                  border-bottom: 2px solid $color-black;
                 }
               }
-              &.active:after {
-                border-bottom: 2px solid $color-black;
+              @include bp(tab) {
+                text-align: center;
+                display: block;
+                padding: 15px setvw(30px);
+                color: $color-black;
+                text-align: center;
+                @include fs(24, 36);
+                font-weight: 600;
               }
-            }
-            @include bp(tab) {
-              text-align: center;
-              display: block;
-              padding: 15px setvw(30px);
-              color: $color-black;
-              text-align: center;
-              @include fs(24, 36);
-              font-weight: 600;
-            }
+            
           }
         }
       }
     }
+   
   }
-/* Dropdown menu */
-.c-open-menu {
-    display: block;
-    position: relative;
-    text-indent: -9999px;
-    background-color: transparent;
-    border: 0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    outline: none;
-    transition: transform .3s cubic-bezier(.4,0,0,1);
-    transform: translate3d(0,-8px,0);
-    @include bp(pc){  
-      background-image: url('../image/menu.png');
-      @include transition(background-image 0.3s ease-in-out);
-      width: 88px;
-      height: 88px;
-      top: 768px;
-      right: 16px;
-      display: none;
-      .header-nav.active & {
-        top: 40px;
-        display: block;
-        position: fixed;
-      }
-    }
-    @include bp(tab){
-        top: 35px;
-        background-image: url('../image/icon-menu.png');
-        width: 28px;
-        height: 18px;
-        right: setvw(40px);
-    };
-    position: absolute;
-    z-index: 999;
-    &:focus {
-        outline: none;
-    }
-    .open & {
-      @include bp(pc){
-        background-image: url('../image/menu-close.png');
-      }
-      @include bp(tab){
-        background-image: url('../image/icon-close.png');
-      }
-    }
-}
-@include bp(tab) {
-  .dropdown-menu {
-    position: fixed;
-    top: 95px;
-    left: 0;
-    z-index: 99;
-    display: none;
-    min-width: 200px;
-    text-align: left;
-    list-style: none;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    overflow-y: auto;
-  }
-  .dropdown-menu.show {
-      display: block;
-  }
-}
-.header-nav.active {
-  @include bp(pc) {
-    .dropdown-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 99;
-        display: none;
-        text-align: left;
-        list-style: none;
-        .navMenu_list {
-          max-width: 420px;
-          margin: 0 auto;
-          padding: 135px 0 0;
-          li {
-            display: block;
-            margin: 0 0 20px 0;
-            a {
-              font-size: 64px;
-            }
 
-          }
-        }
-    }
-  }
-}
